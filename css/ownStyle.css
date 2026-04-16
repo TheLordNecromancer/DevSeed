@@ -1,0 +1,45 @@
+/* #carouselTalleres .card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 12px; 
+    overflow: hidden;
+} */
+
+/* #carouselTalleres .card:hover {
+    transform: scale(1.02); 
+    z-index: 10;
+} */
+
+/* .carousel-inner {
+    padding: 15px; 
+} */
+
+/* Ajuste de la velocidad de deslizamiento para que sea más armónica con los 3s */
+/* .carousel-item {
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+.carousel-container {
+  width: 100%;
+  max-width: 1200px; /* Ajusta según tu diseño */
+  margin: auto;
+  overflow: hidden; /* Oculta lo que no está en las 3 posiciones */
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.8s ease-in-out; /* Suavidad del movimiento */
+  gap: 15px; /* Espaciado entre imágenes */
+}
+
+.card {
+  /* Cada tarjeta ocupa exactamente 1/3 del espacio menos el gap */
+  min-width: calc(33.333% - 10px); 
+  box-sizing: border-box;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
