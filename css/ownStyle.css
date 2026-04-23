@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .carousel-container {
   width: 100%;
   max-width: 1200px; /* Ajusta según tu diseño */
@@ -31,4 +35,12 @@
   right: 0;
   width: 100%;
   z-index: 9999; /* Máxima prioridad visual */
+}
+
+/* Remove the default focus ring if it interferes with your aesthetic, 
+   but ensure you provide a subtle visual cue for accessibility */
+section[tabindex="-1"] {
+    /* Esto crea un espacio virtual arriba solo para el scroll */
+    scroll-margin-top: 80px; 
+    outline: none;
 }
