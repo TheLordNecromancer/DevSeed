@@ -76,12 +76,12 @@ font-family: monospace;
 }
 
 .text-prescripts {
-  color: #99caff;
-  letter-spacing: 0.5px;
+  color: #ffffff;
+  letter-spacing: 1px;
   text-shadow:
-    0 0 1px #00d4ff,
-    0 0 1px #00d4ff,
-    0 0 5px #00d4ff;
+    0 0 2px #00d4ff,
+    0 0 0px #00d4ff,
+    0 0 10px #00d4ff;
 }
 
 .text-brightTitle {
@@ -117,7 +117,7 @@ font-family: monospace;
   left: 0;
   bottom: -5px;
   width: 0%;
-  height: 2px;
+  height: 1px;
   background-color: #ffffff;
   transition: width 0.7s ease;
 }
