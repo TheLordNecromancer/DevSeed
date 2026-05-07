@@ -1,7 +1,3 @@
-html {
-    scroll-behavior: smooth;
-}
-
 .carousel-container {
   width: 100%;
   max-width: 1200px; /* Ajusta según tu diseño */
@@ -18,7 +14,7 @@ html {
 
 .card {
   /* Cada tarjeta ocupa exactamente 1/3 del espacio menos el gap */
-  min-width: calc(33.333% - 10px); 
+  min-width: calc(33.333% - 10px);
   box-sizing: border-box;
 }
 
@@ -37,10 +33,144 @@ html {
   z-index: 9999; /* Máxima prioridad visual */
 }
 
-/* Remove the default focus ring if it interferes with your aesthetic, 
+/* Remove the default focus ring if it interferes with your aesthetic,
    but ensure you provide a subtle visual cue for accessibility */
 section[tabindex="-1"] {
     /* Esto crea un espacio virtual arriba solo para el scroll */
-    scroll-margin-top: 80px; 
+    scroll-margin-top: 80px;
     outline: none;
 }
+
+/* Estilos de texto */
+
+
+
+.targeta{
+  border-color: #360b36;
+}
+
+.targeta:hover{
+  transform: scale(1.02);
+  border-color: #360b36;
+}
+
+.text-normal {
+  font-family: monospace;
+  text-justify: auto;
+  text-align: justify;
+}
+
+.texto-normal-centrado {
+font-family: monospace;
+  text-justify: auto;
+  text-align: center;
+}
+
+.text-bright {
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 1px #00d4ff,
+    0 0 1px #00d4ff,
+    0 0 5px #00d4ff;
+}
+
+.text-prescripts {
+  color: #99caff;
+  letter-spacing: 0.5px;
+  text-shadow:
+    0 0 1px #00d4ff,
+    0 0 1px #00d4ff,
+    0 0 5px #00d4ff;
+}
+
+.text-brightTitle {
+  color: #ffffff;
+  padding: 0px;
+  text-shadow:
+    0 0 2px #00d4ff,
+    0 0 2px #00d4ff,
+    0 0 10px #00d4ff;
+}
+
+.text-brightAct {
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  text-shadow:
+    0 0 10px #360b36,
+    0 0 10px #360b36,
+    0 0 20px #360b36;
+}
+
+/* Subraya cuando el puntero esta encima del boton */
+.navbar a{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.7s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Detalles de los iconos y nombre del semillero en el header y barra de navagación */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background-color: black;
+}
+
+.logo-icono {
+  width: 120px;
+}
+
+.logo-titulo {
+  width: 250px;
+  height: 250px;
+}
+
+.separador-vertical {
+  width: 2px;
+  height: 55px;
+  margin-left: 15px;
+  margin-right: 10px;
+  background-color: #777;
+}
+
+.p{
+  text-align: justify;
+}
+
+/* Secciones */
+
+:root {
+  --navbar-height: 100px;
+}
+
+.navbar {
+  height: var(--navbar-height);
+}
+
+.seccion {
+  min-height: calc(100vh - var(--navbar-height));
+  box-sizing: border-box;
+  padding: 70px 9%;
+}
+
+
+

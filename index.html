@@ -31,34 +31,35 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-black" id="inicio">
                 <div class="container px-5">
                     <!-- Imagenes en el navegador -->
-                    <img class="img-fluid rounded-0 w-10 h-10" src="./assets/icon/icon.png" />
-                    <h1 class=""> | </h1>
-                    <img class="img-fluid rounded-0 w-10 h-10" src="./assets/img/titulo.png" />
+                    <img class="header img-fluid rounded-0 w-10 h-10 logo-icono" src="./assets/icon/icon.png" />
+                    <div class="header separador-vertical"> </div>
+                    <img class="header img-fluid rounded-0 w-15 h-20 logo-titulo" src="./assets/img/titulo.png" />
                     
                     <!-- Referencias en el navegador-->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-brightTitle ">
-                            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-brightTitle">
+                            <li class="nav-item"><a class="nav-link" href="#seed">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="#devseed">Nosotros</a></li>
                             <li class="nav-item"><a class="nav-link" href="#actividades">Actividades</a></li>
                             <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#formulario">Videojuegos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#formulario">Unete</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
             <!-- Header-->
-            <header class="bg-dark py-5">
-                <div class="container px-5" style="margin-top: 5%;">
+            <header class="bg-dark py-5 seccion" id="seed">
+                <div class="container px-5" style="margin-top: 5%;" >
                     <div class="row gx-5 align-items-center justify-content-center">
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
                             <div class="my-5 text-center text-xl-start">
 
                                 <!-- INICIO -->
-                                <h1 class="display-5 fw-bolder text-white mb-2 titulo">Semillero Desarrollo de Videojuegos</h1>
-                                <h1 class="display-5 fw-bolder mb-2 text-brightTitle titulo" id="dev">DEVSEED</h1> <br>
+                                <h1 class="display-5 fw-bolder text-white mb-2" id="titulo-scramble">Semillero Desarrollo de Videojuegos</h1>
+                                <h1 class="display-5 fw-bolder mb-2 text-brightTitle" id="dev">DEVSEED</h1> <br>
                                 <p class="lead fw-normal text-white-50 mb-4 text-prescripts">Videojuegos - Desarrollo - Innovación</p>
+
                             </div>
                         </div>
                         <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
@@ -69,10 +70,10 @@
             <!-- SECCIONES -->
 
             <!-- ¿Que es DEVSEED? -->
-            <section class="py-5 bg-light" id="devseed" tabindex="-1">
+            <section class="py-5 bg-white seccion" id="devseed" tabindex="-1">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+                        <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="./assets/img/que_es.png" alt="..." /></div>
                         <div class="col-lg-6">
                             <h1><span class="fw-bolder"> ¿Qué es</span>
                                 <span class="text-brightTitle fw-bolder">DEVSEED</span>
@@ -87,7 +88,7 @@
             
             <!-- INTEGRANTES  -->
 
-            <section class="py-5 bg-dark">
+            <section class="py-5 bg-dark seccion">
                 <div class="container px-5 my-5">
                     <div class="text-center">
                         <h2 class=" text-brightTitle">Nuestro Equipo</h2>
@@ -97,7 +98,7 @@
                     <div class="row row-cols-1 justify-content-center mb-5">
                         <div class="col mb-5 mb-5 mb-xl-0">
                             <div class="text-center">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="./assets/img/kellyMarin.png" style="width: 200px;" alt="Kelly Marin" />
                                 <h5 class="fw-bolder text-white">Kelly Daniella Marin</h5>
                                 <div class="fst-italic text-muted">Ingeniera Multimedia, <br> Magister en Diseño y Desarrollo Videojuegos.</div>
                             </div>
@@ -148,7 +149,7 @@
                         </div>
                         <div class="col mb-5 mb-5 mb-xl-0">
                             <div class="text-center">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="./assets/img/sebastian.png" style="width: 200px;" alt="..." />
                                 <h5 class="fw-bolder text-white">Sebastian Rodríguez</h5>
                                 <div class="fst-italic text-muted">Programación</div>
                             </div>
@@ -160,7 +161,7 @@
             <!-- MISIÓN Y VISIÓN -->
 
             <!-- MISIÓN -->
-            <section class="py-5 bg-light" id="scroll-target">
+            <section class="py-5 bg-light seccion" id="scroll-target">
                 <div class="container px-5 my-5 linea">
                     <div class="row gx-5 align-items-center">
                         <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
@@ -173,7 +174,7 @@
             </section>
 
             <!-- VISIÓN -->
-            <section class="py-5">
+            <section class="py-5 seccion">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 align-items-center">
                         <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
@@ -186,7 +187,7 @@
             </section>
 
             <!-- ACTIVIDADES / TALLERES -->
-            <section class="py-5 bg-dark" id="actividades" tabindex="-1">
+            <section class="py-5 bg-dark seccion" id="actividades" tabindex="-1">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 justify-content-center">
                         <div class=" col-lg-8 col-xl-6">
@@ -205,44 +206,17 @@
                             <div class="card targeta"><img src="./assets/img/taller5.png" alt="Personajes"></div>
                         </div>
                     </div>
-                    <!-- <div class="row gx-5">
-                        <div class="targeta col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-center" src="./assets/img/taller1.png" alt="..." />
-                            </div>
-                        </div>
-                        <div class="targeta col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="./assets/img/taller2.png" alt="..." />
-                            </div>
-                        </div>
-                        <div class="targeta col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="./assets/img/taller3.png" alt="..." />
-                            </div>
-                        </div>
-                        <div class="targeta col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="./assets/img/taller4.png" alt="..." />
-                            </div>
-                        </div>
-                        <div class="targeta col-lg-4 mb-5">
-                            <div class="card h-100 shadow border-0">
-                                <img class="card-img-top" src="./assets/img/taller5.png" alt="..." />
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </section>
-        </main>
+        
 
         <!-- PROYECTOS -->
 
-        <section class="py-5" id="proyectos" tabindex="-1">
+            <section class="py-5 seccion" id="proyectos" tabindex="-1">
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
                         <h1 class="fw-bolder">Nuestros Proyectos</h1>
-                        <p class="lead fw-normal text-muted mb-0">Company portfolio</p>
+                        <p class="lead fw-normal text-muted mb-0 text-normal text-center">Proyectos desarrollados y en desarrollo</p>
                     </div>
                     <div class="row gx-5">
                         <div class="col-lg-6">
@@ -273,15 +247,66 @@
                 </div>
             </section>
 
+        <!-- Videojuegos -->
+
+            <section class="py-5 bg-dark seccion" tabindex="-1">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder text-brightTitle">Videojuegos</h1>
+                        <p class="lead fw-normal text-muted text-normal-centrado mb-0">Videojuegos creados por nuestros integrantes</p>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />
+                                <a class="h3 fw-bolder text-decoration-none stretched-link text-white" href="#!">Project name</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />
+                                <a class="h3 fw-bolder text-decoration-none stretched-link text-white" href="#!">Project name</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Noticias -->
+
+            <section class="py-5 seccion" tabindex="-1">
+                <div class="container px-5 my-5">
+                    <div class="text-center mb-5">
+                        <h1 class="fw-bolder">Noticias de DevSeed</h1>
+                        <p class="lead fw-normal text-muted mb-0">Company portfolio</p>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />
+                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mb-5">
+                                <img class="img-fluid rounded-3 mb-3" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." />
+                                <a class="h3 fw-bolder text-decoration-none link-dark stretched-link" href="#!">Project name</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
         <!-- Formulario de Inscripción -->
-        <section class="py-5 bg-dark" id="formulario" tabindex="-1">
+            <section class="py-5 bg-dark seccion" id="formulario" tabindex="-1">
                 <div class="container px-5">
                     <!-- Contact form-->
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
                             <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
                             <h1 class="fw-bolder">Unete al DEVSEED</h1>
-                            <p class="lead fw-normal text-muted mb-0 text-normal">We'd love to hear from you</p>
+                            <p class="lead fw-normal text-muted mb-0 text-normal-centrado">We'd love to hear from you</p>
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
@@ -344,6 +369,8 @@
                 </div>
             </section>
 
+        </main>
+
         <!-- Footer-->
         <footer class="bg-black py-4 mt-auto">
             <div class="container px-5">
@@ -354,8 +381,10 @@
             </div>
         </footer>
 
+
         <script src="./js/bootstrap.bundle.min.js"></script>
         <script src="./js/card.js"></script>
         <script src="./js/movementSection.js"></script>
+        <script src="./js/scrambleTitle.js"></script>
     </body>
 </html>

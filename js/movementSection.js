@@ -1,25 +1,28 @@
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // Evitamos el salto brusco original
-        
-        const hash = this.getAttribute('href');
-        const target = document.querySelector(hash);
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+document.querySelectorAll('a.nav-link').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
 
-        if (target) {
-            // Calculamos la posición real menos el alto del menú
-            const elementPosition = target.offsetTop;
-            const offsetPosition = elementPosition - navbarHeight;
+        // Verificamos que sea un enlace interno
+        if (href.startsWith("#")) {
+            e.preventDefault(); // Evita el "salto" instantáneo
+            
+            const targetId = href;
+            const targetElement = document.querySelector(targetId);
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            if (targetElement) {
+                // Obtenemos la altura del navbar dinámicamente
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const elementPosition = targetElement.offsetTop;
+                const offsetPosition = elementPosition - navHeight;
 
-            // Aplicamos el foco después del movimiento para no perder la posición
-            setTimeout(() => {
-                target.focus({ preventScroll: true }); 
-            }, 600); // 600ms es el tiempo estándar del smooth scroll
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Opcional: Transferencia de foco para accesibilidad
+                targetElement.focus({ preventScroll: true });
+            }
         }
     });
 });
