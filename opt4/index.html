@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visor 3D - TRELLIS.2</title>
+  
+  <!-- Importar Tailwind CSS para los estilos -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Importar la librería model-viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body class="bg-slate-900 flex items-center justify-center min-h-screen p-4">
+
+  <div class="w-full max-w-4xl bg-slate-800 rounded-2xl shadow-2xl p-6 border border-slate-700">
+    <h1 class="text-2xl font-bold text-white mb-2">Visor de Activos 3D</h1>
+    <p class="text-slate-400 mb-6">Modelo generado a partir de una imagen 2D.</p>
+    
+    <!-- Contenedor del visor 3D -->
+    <div class="w-full h-[500px] bg-slate-950 rounded-xl overflow-hidden relative shadow-inner">
+      
+      <!-- Etiqueta model-viewer -->
+      <model-viewer 
+        src="./ruta/a/tu/modelo_trellis.glb" 
+        alt="Modelo 3D interactivo" 
+        camera-controls 
+        auto-rotate 
+        rotation-per-second="30deg"
+        shadow-intensity="1.5"
+        shadow-softness="1"
+        environment-image="neutral"
+        exposure="1.2"
+        class="w-full h-full outline-none">
+        
+        <!-- Mensaje de carga opcional -->
+        <div slot="poster" class="absolute inset-0 flex items-center justify-center bg-slate-950 text-white">
+          Cargando modelo 3D...
+        </div>
+      </model-viewer>
+
+    </div>
+    
+    <div class="mt-4 flex justify-between items-center text-sm text-slate-500">
+      <span>Interactúa: Arrastra para rotar • Scroll para zoom</span>
+      <span class="bg-slate-700 text-slate-300 px-3 py-1 rounded-full">Formato: .GLB</span>
+    </div>
+  </div>
+
+</body>
+</html>
