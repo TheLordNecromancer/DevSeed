@@ -140,9 +140,9 @@ var DevSeedModel = (function () {
     // lead: true → resalta la tarjeta (coordinación estudiantil)
     students: [
       { name: 'Sebastián Rodríguez',     role: { es: 'Coordinador del semillero', en: 'Group coordinator' }, photo: 'img/sebastian.png', lead: true },
-      { name: 'Lauren',                  role: { es: 'Arte',         en: 'Art' },         photo: null },
-      { name: 'Samuel',                  role: { es: 'Programación', en: 'Programming' }, photo: 'img/samuel.jpg' },
-      { name: 'John Didier',             role: { es: 'Programación', en: 'Programming' }, photo: null }
+      { name: 'Laurent Rojas',           role: { es: 'Arte',         en: 'Art' },         photo: null },
+      { name: 'Samuel Campo',            role: { es: 'Programación', en: 'Programming' }, photo: 'img/samuel.jpg' },
+      { name: 'Jhon Urbano',             role: { es: 'Programación', en: 'Programming' }, photo: 'img/john-didier.jpg' }
     ],
 
     gallery: [

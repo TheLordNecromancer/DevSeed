@@ -1,0 +1,12 @@
+# DevSeed — sitio estático servido con Nginx
+# Uso en el servidor:  docker compose up -d
+services:
+  web:
+    image: nginx:1.27-alpine
+    container_name: devseed-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
