@@ -388,51 +388,42 @@ var DevSeedModel = (function () {
      IMPORTANTE: el primer envío manda un correo de activación a esta
      dirección; hay que abrirlo y confirmar para empezar a recibir registros. */
   var MAIL_TO = 'kdmarin@usbcali.edu.co';
-  var MAIL_ENDPOINT = 'https://formsubmit.co/ajax/' + MAIL_TO;
-
+  
   // Plan B: abre el programa de correo del visitante con el mensaje ya escrito
   function buildMailto(p) {
     var body = 'Nombre: ' + p.Nombre + '\nCorreo: ' + p.Correo + '\nÁrea de interés: ' + p['Área de interés'] + '\nMensaje: ' + p.Mensaje;
     return 'mailto:' + MAIL_TO + '?subject=' + encodeURIComponent(p._subject) + '&body=' + encodeURIComponent(body);
   }
 
+  /* El servidor de la universidad (lidis) bloquea peticiones en segundo plano (fetch)
+     a dominios externos, pero sí permite el envío normal de formularios. Por eso el
+     formulario se envía con un POST tradicional a FormSubmit, que luego redirige de
+     vuelta a la página con ?registro=ok para mostrar el mensaje de éxito. */
+  var MAIL_FORM_ACTION = 'https://formsubmit.co/' + MAIL_TO;
+
   function addRegistration(r) {
     var errors = validateRegistration(r);
-    if (Object.keys(errors).length) return Promise.resolve({ ok: false, errors: errors });
+    if (Object.keys(errors).length) return { ok: false, errors: errors };
 
     var areaItem = data.interestAreas.filter(function (a) { return a.value === r.area; })[0];
-    var payload = {
+    var back = location.origin + location.pathname + '?registro=ok#unete';
+    var fields = {
       _subject: 'Nuevo registro DevSeed: ' + r.nombre.trim(),
       _template: 'table',
       _captcha: 'false',
       _replyto: r.correo.trim(),
-      Nombre: r.nombre.trim(),
-      Correo: r.correo.trim(),
+      _next: back,
       'Área de interés': areaItem ? areaItem.label.es : r.area,
-      Mensaje: (r.mensaje || '').trim() || '—',
-      Idioma: lang === 'es' ? 'Español' : 'Inglés',
-      _honey: r.honey || ''
+      Idioma: lang === 'es' ? 'Español' : 'Inglés'
     };
+    registrations.push(fields);
+    return { ok: true, errors: {}, action: MAIL_FORM_ACTION, fields: fields,
+             fileProtocol: location.protocol === 'file:' };
+  }
 
-    return fetch(MAIL_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-      .then(function (res) { return res.json().catch(function () { return {}; }).then(function (j) { return { res: res, j: j }; }); })
-      .then(function (o) {
-        var ok = o.res.ok && String(o.j.success) !== 'false';
-        var msg = String(o.j.message || '');
-        if (ok) registrations.push(payload);
-        else if (window.console) console.warn('[DevSeed] FormSubmit:', msg || o.res.status);
-        return { ok: ok, errors: {}, sendError: !ok,
-                 needsActivation: /activat/i.test(msg),
-                 fileProtocol: location.protocol === 'file:',
-                 mailto: buildMailto(payload) };
-      })
-      .catch(function () {
-        return { ok: false, errors: {}, sendError: true, fileProtocol: location.protocol === 'file:', mailto: buildMailto(payload) };
-      });
+  // ¿Volvemos de FormSubmit después de un envío exitoso?
+  function wasJustRegistered() {
+    try { return new URLSearchParams(location.search).get('registro') === 'ok'; } catch (e) { return false; }
   }
 
   return {
@@ -442,6 +433,7 @@ var DevSeedModel = (function () {
     getLang: function () { return lang; },
     loadLang: loadLang,
     setLang: setLang,
-    addRegistration: addRegistration
+    addRegistration: addRegistration,
+    wasJustRegistered: wasJustRegistered
   };
 })();

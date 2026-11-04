@@ -132,7 +132,7 @@ var DevSeedView = (function () {
       return '<article class="event-card video-card">' +
         '<div class="video-frame" data-video="' + v.id + '" data-start="' + v.start + '">' +
         '<button type="button" class="video-play" aria-label="' + esc(t.livePlay + ': ' + v.title) + '">' +
-        '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy">' +
+        '<img src="https://img.youtube.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy">' +
         '<span class="video-icon" aria-hidden="true">▶</span></button>' +
         '<span class="event-type">' + esc(v.tag) + '</span></div>' +
         '<div class="event-body"><h4>' + esc(v.title) + '</h4>' +
@@ -158,7 +158,7 @@ var DevSeedView = (function () {
   function playVideo(frame) {
     var id = frame.dataset.video, start = frame.dataset.start;
     var title = frame.querySelector('.video-play').getAttribute('aria-label');
-    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?start=' + start + '&autoplay=1&rel=0" ' +
+    frame.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?start=' + start + '&autoplay=1&rel=0" ' +
       'title="' + esc(title) + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
   }
 
@@ -318,6 +318,28 @@ var DevSeedView = (function () {
     if (first) $('#joinForm')[first].focus();
   }
 
+  // Envía el formulario de forma tradicional (POST) con campos ocultos extra
+  function submitNative(action, fields) {
+    var f = $('#joinForm');
+    f.querySelectorAll('input[data-extra]').forEach(function (n) { n.remove(); });
+    Object.keys(fields).forEach(function (k) {
+      var inp = document.createElement('input');
+      inp.type = 'hidden'; inp.name = k; inp.value = fields[k]; inp.setAttribute('data-extra', '');
+      f.appendChild(inp);
+    });
+    f.action = action;
+    f.method = 'POST';
+    f.acceptCharset = 'UTF-8';
+    f.submit();   // no dispara el evento submit otra vez
+  }
+
+  function showReturnSuccess(t) {
+    var fb = $('#joinFeedback');
+    fb.classList.remove('error');
+    fb.textContent = t.success;
+    fb.classList.add('show');
+  }
+
   function setSending(sending, t) {
     var btn = $('#submitBtn');
     btn.disabled = sending;
@@ -381,6 +403,8 @@ var DevSeedView = (function () {
     clearFieldError: clearFieldError,
     setBackTop: setBackTop,
     setSending: setSending,
+    submitNative: submitNative,
+    showReturnSuccess: showReturnSuccess,
     showSendError: showSendError
   };
 })();

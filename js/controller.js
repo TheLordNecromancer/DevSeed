@@ -142,17 +142,20 @@ var DevSeedController = (function (Model, View) {
     });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var t = Model.ui();
-      var data = View.getFormData();
-      var pending = Model.addRegistration(data);
-      View.setSending(true, t);
-      pending.then(function (result) {
-        View.setSending(false, Model.ui());
-        if (result.ok) View.showFormSuccess(Model.ui());
-        else if (result.sendError) View.showSendError(Model.ui(), result);
-        else View.showFormErrors(result.errors);
-      });
+      var result = Model.addRegistration(View.getFormData());
+      if (!result.ok) { View.showFormErrors(result.errors); return; }
+      View.setSending(true, Model.ui());
+      View.submitNative(result.action, result.fields);
     });
+  }
+
+  // Al volver de FormSubmit (?registro=ok): mensaje de éxito y URL limpia
+  function handleReturn() {
+    if (!Model.wasJustRegistered()) return;
+    View.showReturnSuccess(Model.ui());
+    try { history.replaceState(null, '', location.pathname + '#unete'); } catch (e) {}
+    var sec = document.getElementById('unete');
+    if (sec) setTimeout(function () { sec.scrollIntoView(); }, 150);
   }
 
   // Heurística 3: botón para volver arriba sin tener que hacer scroll
@@ -181,6 +184,7 @@ var DevSeedController = (function (Model, View) {
     bindProductions();
     bindForm();
     bindBackTop();
+    handleReturn();
   }
 
   return { init: init };
