@@ -193,7 +193,7 @@ var DevSeedModel = (function () {
           { es: 'Inscripción gratuita', en: 'Free entry' },
           { es: 'Muestra y premiación: 10 de octubre', en: 'Showcase & awards: October 10' }
         ],
-        image: 'https://img.itch.zone/aW1nLzMwNTgxMTAzLnBuZw==/original/YCPkd3.png',
+        image: 'img/game-jam-usb-2026.jpg',
         url: 'https://itch.io/jam/game-jam-usb-2026',
         button: { es: 'VER EN ITCH.IO ↗', en: 'VIEW ON ITCH.IO ↗' }
       },
